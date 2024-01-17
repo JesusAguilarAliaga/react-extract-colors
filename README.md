@@ -4,8 +4,8 @@
    <p align="center">A react hook to extract dominant colors from an image 🎨<br>
     </p>
    <p align="center">
-      <!-- <a href="none"><b>Github</b></a> •
-      <a href="none"><b>Website - Docs</b></a> -->
+      <a href="https://github.com/JesusAguilarAliaga/react-extract-colors"><b>Github</b></a> •
+      <a href="https://react-extract-colors.netlify.app/"><b>Examples(Documentation)</b></a>
    </p>
    <img src="https://i.imgur.com/MfezyZT.jpg">
    <br>
@@ -164,7 +164,7 @@ The maxSize is the size at which the image will be processed to extract colors. 
 | :-------- | :------- | :------------------------- | :------- |
 | `maxColors` | `number` |  Number of colors to get in the `colors` array **default: 5** | 0-100 |
 | `format` | `string` |   Format to get the colors **default: rgba** | `rgba` `rgb` `hex` `hsl` `hsv` |
-| `maxSize` | `number` | Size to extract the colors **default: 100** | 0-500 |
+| `maxSize` | `number` | Size to extract the colors **default: 10** | 0-500 |
 
 <h3 align="center">
    Credits  🙌

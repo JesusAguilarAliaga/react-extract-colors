@@ -1,6 +1,6 @@
 {
   "name": "react-extract-colors",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "type": "module",
   "description": "A react component to extract dominant colors from an image",
   "main": "dist/index.js",
@@ -10,6 +10,7 @@
   },
   "author": "Jesús Aguilar",
   "license": "MIT",
+  "keywords": ["extract colors", "image", "dominant colors", "react", "reactjs", "react-component"],
   "repository": {
     "type": "git",
     "url": "https://github.com/JesusAguilarAliaga/react-extract-colors"

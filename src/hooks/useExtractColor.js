@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const defaultOptions = {
   maxColors: 3,
   format: "rgba",
-  maxSize: 100,
+  maxSize: 10,
 }
 
 function useExtractColor(imageUrl, optionsCustom = {}) {
