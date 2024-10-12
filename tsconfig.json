@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "esnext",
+		"declaration": true,
+		"outDir": "./dist/types",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["src/**/*", "src/types/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
