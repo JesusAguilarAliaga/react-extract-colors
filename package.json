@@ -1,29 +1,57 @@
 {
-  "name": "react-extract-colors",
-  "version": "1.0.3",
-  "type": "module",
-  "description": "A react component to extract dominant colors from an image",
-  "main": "dist/index.js",
-  "scripts": {
-    "build:dev": "rollup -c --environment NODE_ENV:development",
-    "build": "rollup -c --environment NODE_ENV:production"
-  },
-  "author": "Jesús Aguilar",
-  "license": "MIT",
-  "keywords": ["extract colors", "image", "dominant colors", "react", "reactjs", "react-component"],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JesusAguilarAliaga/react-extract-colors"
-  },
-  "bugs": {
-    "url": "https://github.com/JesusAguilarAliaga/react-extract-colors/issues"
-  },
-  "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^4.9.4"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+	"name": "react-extract-colors",
+	"version": "1.5.0",
+	"type": "module",
+	"description": "A react component to extract dominant colors from an image",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
+	"types": "dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.esm.js",
+			"require": "./dist/index.cjs.js"
+		}
+	},
+	"scripts": {
+		"build:dev": "rollup -c --environment NODE_ENV:development",
+		"build": "rollup -c --environment NODE_ENV:production",
+		"format": "biome format --write",
+		"lint": "biome lint"
+	},
+	"author": "Jesús Aguilar",
+	"license": "MIT",
+	"keywords": [
+		"extract colors",
+		"image",
+		"dominant colors",
+		"react",
+		"reactjs",
+		"react-component",
+		"react colors"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JesusAguilarAliaga/react-extract-colors"
+	},
+	"bugs": {
+		"url": "https://github.com/JesusAguilarAliaga/react-extract-colors/issues"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.3",
+		"@rollup/plugin-commonjs": "^28.0.0",
+		"@rollup/plugin-node-resolve": "^15.3.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^12.1.0",
+		"@types/react": "^18.3.8",
+		"@types/react-dom": "^18.3.0",
+		"rollup": "^4.9.4",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"tslib": "^2.7.0",
+		"typescript": "^5.6.2"
+	},
+	"peerDependencies": {
+		"react": ">=17.0.0",
+		"react-dom": ">=17.0.0"
+	}
 }
