@@ -1,6 +1,6 @@
 {
 	"name": "react-extract-colors",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"type": "module",
 	"description": "A react component to extract dominant colors from an image",
 	"main": "dist/index.cjs.js",
