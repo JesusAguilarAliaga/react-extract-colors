@@ -18,9 +18,11 @@
 <p align="center">Get started with these simple installation steps.</p>
 
 ###### Using npm
+
 ```bash
 npm install react-extract-colors
 ```
+
 ###### Using yarn
 
 ```bash
@@ -32,11 +34,13 @@ yarn add react-extract-colors
 ```bash
 pnpm add react-extract-colors
 ```
+
 Once the package is installed, you can import the library using `import` approach:
 
 ```js
-import { useExtractColor } from "react-extract-colors";
+import { useExtractColors } from "react-extract-colors";
 ```
+
 <h3 align="center">
    Usage 👨‍💻
 </h3>
@@ -50,33 +54,24 @@ If you only need the dominant color, you can use the `dominantColor` property.
 You can also get the darker and lighter variants to create a grandient color.
 
 ```js
-import { useExtractColor } from "react-extract-colors";
+import { useExtractColors } from "react-extract-colors";
 
 const image = "https://picsum.photos/id/237/200/300";
 
-const {
-  colors,
-  dominantColor,
-  darkerColor,
-  lighterColor,
-  loading,
-  error,
-} = useExtractColor(image);
+const { colors, dominantColor, darkerColor, lighterColor, loading, error } =
+  useExtractColors(image);
 ```
 
 ##### Properties 📊
 
-| Property | Description                |
-| :-------- | :------------------------- |
-| `colors` | An array containing the top dominant colors |
-| `dominantColor` | The dominant color of the image |
-| `darkerColor` | A darker variant of the dominant color |
-| `lighterColor` | A lighter variant of the dominant color |
-| `loading` | Indicates whether the image is loading |
-| `error` | Indicates whether the image has an error |
-
-
-
+| Property        | Description                                 |
+| :-------------- | :------------------------------------------ |
+| `colors`        | An array containing the top dominant colors |
+| `dominantColor` | The dominant color of the image             |
+| `darkerColor`   | A darker variant of the dominant color      |
+| `lighterColor`  | A lighter variant of the dominant color     |
+| `loading`       | Indicates whether the image is loading      |
+| `error`         | Indicates whether the image has an error    |
 
 <h3 align="center">
    Example 🌟
@@ -86,17 +81,21 @@ Explore a basic example to understand its usage, you can utilize it in various w
 
 ```js
 // import the hook
-import { useExtractColor } from "react-extract-colors";
+import { useExtractColors } from "react-extract-colors";
 
 const image = "https://picsum.photos/id/237/200/300";
 
 const App = () => {
-    // Use the hook to extract the dominant color
-  const { dominantColor, darkerColor, lighterColor } = useExtractColor(image);
+  // Use the hook to extract the dominant color
+  const { dominantColor, darkerColor, lighterColor } = useExtractColors(image);
 
   return (
     // set a linear gradient with colors extracted
-    <div style={{ backgroundColor: `linear-gradient(45deg, ${dominantColor}, ${darkerColor}, ${lighterColor})` }}>
+    <div
+      style={{
+        backgroundColor: `linear-gradient(45deg, ${dominantColor}, ${darkerColor}, ${lighterColor})`,
+      }}
+    >
       <h1>Extract Color</h1>
       <img src={image} alt="random image" width="200" height="300" />
     </div>
@@ -111,23 +110,25 @@ export default App;
 </h4>
 
 You can also pass settings to the hook, to customize the extraction process.
+
 > **Note:** passing settings to the hook is an optional step.
 
 ```js
 // import the hook
-import { useExtractColor } from "react-extract-colors";
+import { useExtractColors } from "react-extract-colors";
 
 const image = "https://picsum.photos/id/237/200/300";
 
 const App = () => {
-    // Use the hook to extract the dominant color
-  const { colors } = useExtractColor(image, {
+  // Use the hook to extract the dominant color
+  const { colors } = useExtractColors(image, {
     maxColors: 3,
     format: "hex",
     maxSize: 200,
-  })
+    orderBy: "vibrance",
+  });
 
-  const [color1, color2, color3] = colors
+  const [color1, color2, color3] = colors;
 
   return (
     // set the background color to the dominant color
@@ -136,7 +137,7 @@ const App = () => {
       <img src={image} alt="random image" width="200" height="300" />
     </div>
   );
-}
+};
 
 export default App;
 ```
@@ -155,16 +156,28 @@ The maxColors parameter determines the number of colors to be included in the `c
 
 You can specify the color format using one of the following options: `rgba`, `rgb`, `hex`, `hsl`, or `hsv`.
 
-
 #### maxSize:
 
 The maxSize is the size at which the image will be processed to extract colors. The smaller the size, the faster the processing may be, but it affects color accuracy to some extent. If you need more precision, you can set a higher value at the expense of sacrificing some speed.
 
-| Parameter | Type     | Description                | Options (recommended) |
-| :-------- | :------- | :------------------------- | :------- |
-| `maxColors` | `number` |  Number of colors to get in the `colors` array **default: 5** | 0-100 |
-| `format` | `string` |   Format to get the colors **default: rgba** | `rgba` `rgb` `hex` `hsl` `hsv` |
-| `maxSize` | `number` | Size to extract the colors **default: 10** | 0-500 |
+#### colorSimilarityThreshold:
+
+The `colorSimilarityThreshold` parameter defines the minimum similarity between colors to be considered identical. If you want to avoid retrieving colors that look very similar, you can adjust this value. A threshold of `0` will return all detected colors without filtering for similarity.
+
+#### sortBy:
+
+The `sortBy` parameter controls the sorting of the returned colors. You can select from the following options:
+
+- **`vibrance`**: Sorts colors by brightness, giving priority to the most vibrant ones.
+- **`dominance`**: Sorts colors based on how frequently they appear in the image.
+
+| Parameter                  | Type     | Description                                                                         | Options (recommended)          |
+| :------------------------- | :------- | :---------------------------------------------------------------------------------- | :----------------------------- |
+| `maxColors`                | `number` | Number of colors to get in the `colors` array **default: 3**                        | 0-100                          |
+| `format`                   | `string` | Format to get the colors **default: rgba**                                          | `rgba` `rgb` `hex` `hsl` `hsv` |
+| `maxSize`                  | `number` | Size to extract the colors **default: 18**                                          | 0-500                          |
+| `colorSimilarityThreshold` | `number` | Minimum similarity threshold for colors to be considered identical. **default: 50** | 0-500                          |
+| `sortBy`                   | `string` | Determines the sorting method for the returned colors **default: dominance**        | `vibrance` `dominance`         |
 
 <h3 align="center">
    Credits  🙌
