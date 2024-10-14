@@ -34,6 +34,7 @@
 		"type": "git",
 		"url": "https://github.com/JesusAguilarAliaga/react-extract-colors"
 	},
+	"homepage": "https://react-extract-colors.netlify.app",
 	"bugs": {
 		"url": "https://github.com/JesusAguilarAliaga/react-extract-colors/issues"
 	},
